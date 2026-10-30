@@ -1,0 +1,15 @@
+\begin{tabular}{llcccc}
+\toprule
+Method & Selected configuration & Status & Dev F1 & Dev BG & Dev FAR/h \\
+\midrule
+Static & \texttt{default} & fixed & 0.137 & 0.0644 & 647.7 \\
+EWMA & \texttt{ewma\_alpha=0.02} & feasible & 0.004 & 0.0136 & 1.11 \\
+Gated EWMA & \texttt{ewma\_alpha=0.005;gate\_quantile=0.999} & fallback & 0.078 & 0.0148 & 99.36 \\
+RLS & \texttt{rls\_forgetting=0.98} & feasible & 0.004 & 0.0136 & 1.11 \\
+Adam & \texttt{adam\_learning\_rate=0.02} & feasible & 0.005 & 0.0261 & 1.09 \\
+DAES & \texttt{daes\_gain=0.2} & feasible & 0.004 & 0.0417 & 1.05 \\
+Gated DAES (fixed) & \texttt{daes\_gain=0.5;gate\_quantile=0.995} & fallback & 0.011 & 0.0692 & 12.42 \\
+Rad-DAES & \texttt{daes\_gain=0.5;gate\_quantile=0.999} & fallback & 0.036 & 0.0257 & 28.64 \\
+Oracle gate & \texttt{daes\_gain=0.05} & fallback & 0.228 & 0.0147 & 12.48 \\
+\bottomrule
+\end{tabular}

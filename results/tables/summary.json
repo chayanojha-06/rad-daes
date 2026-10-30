@@ -1,0 +1,19 @@
+{
+  "n_runs": 1440,
+  "n_methods": 9,
+  "n_scenarios": 32,
+  "n_seeds": 5,
+  "methods": [
+    "adam",
+    "daes",
+    "ewma",
+    "gated_daes_fixed",
+    "gated_ewma",
+    "oracle_gate",
+    "rad_daes",
+    "rls",
+    "static"
+  ],
+  "best_f1_method": "oracle_gate",
+  "best_f1": 0.2418416311419214
+}

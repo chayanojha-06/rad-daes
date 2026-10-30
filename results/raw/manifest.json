@@ -1,0 +1,90 @@
+{
+  "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "pandas": "3.1.0",
+  "matplotlib": "3.11.2",
+  "scikit_learn": "1.9.1",
+  "generated_at_utc": "2026-10-28T09:36:17Z",
+  "package": "rad-daes",
+  "package_root": "C:\\Users\\chaya\\OneDrive\\Documents\\Default Project\\rad-daes",
+  "command": "scripts/run_benchmarks.py --mode full --workers 10 --output results",
+  "phases": [
+    "calibrate",
+    "tune",
+    "test"
+  ],
+  "synthetic_only": true,
+  "real_data_used": false,
+  "protocol_date": "2026-10-28",
+  "duration_seconds": 21600,
+  "warmup_seconds": 600,
+  "workers": 10,
+  "seed_dev": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "seed_test": [
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "config_sha256": {
+    "data.yaml": "859f34574f093109caa14fe190e742a08ed8cd64e5c2d2082fbfa77b41d3cd3d",
+    "model.yaml": "fda818914b0cee282eb08ee938126d7b185f02cbc29010acf07f7d386e7354f0",
+    "experiments.yaml": "018e5efbe261977d7f1cbc53516888563fd476a586a1000af4b6eaeb1421e98e"
+  },
+  "script_sha256": "efa962a1fdace2e5f582869e1172fb425c82c396cf40e0c00a7da266491e69c4",
+  "elapsed_seconds": 2011.131097799982,
+  "n_candidates": 69,
+  "n_calibration_runs": 69,
+  "n_development_runs": 1035,
+  "n_test_runs": 1440,
+  "methods": [
+    "static",
+    "ewma",
+    "gated_ewma",
+    "rls",
+    "adam",
+    "daes",
+    "gated_daes_fixed",
+    "rad_daes",
+    "oracle_gate"
+  ],
+  "selected_candidates": {
+    "static": {},
+    "ewma": {
+      "ewma_alpha": 0.02
+    },
+    "gated_ewma": {
+      "ewma_alpha": 0.005,
+      "gate_quantile": 0.999
+    },
+    "rls": {
+      "rls_forgetting": 0.98
+    },
+    "adam": {
+      "adam_learning_rate": 0.02
+    },
+    "daes": {
+      "daes_gain": 0.2
+    },
+    "gated_daes_fixed": {
+      "daes_gain": 0.5,
+      "gate_quantile": 0.995
+    },
+    "rad_daes": {
+      "daes_gain": 0.5,
+      "gate_quantile": 0.999
+    },
+    "oracle_gate": {
+      "daes_gain": 0.05
+    }
+  }
+}

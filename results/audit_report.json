@@ -1,0 +1,117 @@
+{
+  "generated_at_utc": "2026-10-28T13:49:02.651388+00:00",
+  "n_checks": 22,
+  "n_failed": 0,
+  "checks": [
+    {
+      "check": "test_methods_match_config",
+      "passed": true,
+      "detail": "methods=['adam', 'daes', 'ewma', 'gated_daes_fixed', 'gated_ewma', 'oracle_gate', 'rad_daes', 'rls', 'static']"
+    },
+    {
+      "check": "test_regimes_match_config",
+      "passed": true,
+      "detail": "regimes=['abrupt', 'gradual', 'recurring', 'stable']"
+    },
+    {
+      "check": "test_faults_match_config",
+      "passed": true,
+      "detail": "faults=['clean', 'dropout_10', 'jitter_10', 'mixed_10', 'mixed_15', 'mixed_5', 'spike_10', 'stuck_10']"
+    },
+    {
+      "check": "test_seeds_match_config",
+      "passed": true,
+      "detail": "seeds=[11, 12, 13, 14, 15]"
+    },
+    {
+      "check": "test_rows_unique",
+      "passed": true,
+      "detail": "0 duplicate keys"
+    },
+    {
+      "check": "test_scenario_cells_complete",
+      "passed": true,
+      "detail": "288 cells, expected 288; min=5, max=5"
+    },
+    {
+      "check": "test_key_metrics_finite",
+      "passed": true,
+      "detail": "f1=ok, far_per_hour=ok, bg_rel_error=ok"
+    },
+    {
+      "check": "one_selected_candidate_per_method",
+      "passed": true,
+      "detail": "9 selected rows for 9 methods"
+    },
+    {
+      "check": "test_uses_frozen_selection_and_thresholds",
+      "passed": true,
+      "detail": "consistent"
+    },
+    {
+      "check": "manifest_present",
+      "passed": true,
+      "detail": "elapsed=2011.131097799982s"
+    },
+    {
+      "check": "manifest_run_counts_match_protocol",
+      "passed": true,
+      "detail": "observed={'candidates': 69, 'calibration': 69, 'development': 1035, 'test': 1440}, expected={'candidates': 69, 'calibration': 69, 'development': 1035, 'test': 1440}"
+    },
+    {
+      "check": "manifest_test_rows_match_csv",
+      "passed": true,
+      "detail": "manifest=1440, csv=1440"
+    },
+    {
+      "check": "manifest_declares_synthetic_only",
+      "passed": true,
+      "detail": "synthetic_only=True, real_data_used=False"
+    },
+    {
+      "check": "config_hashes_match_run",
+      "passed": true,
+      "detail": "all config hashes match"
+    },
+    {
+      "check": "saved_rows_reproduce_from_seeds",
+      "passed": true,
+      "detail": "2 runs recomputed"
+    },
+    {
+      "check": "trace_files_present",
+      "passed": true,
+      "detail": "4 traces, 0 missing"
+    },
+    {
+      "check": "required_tables_present",
+      "passed": true,
+      "detail": "all present"
+    },
+    {
+      "check": "required_figures_present",
+      "passed": true,
+      "detail": "all present"
+    },
+    {
+      "check": "manuscript_present",
+      "passed": true,
+      "detail": "354 lines"
+    },
+    {
+      "check": "manuscript_inputs_exist",
+      "passed": true,
+      "detail": "5 inputs"
+    },
+    {
+      "check": "manuscript_figures_exist",
+      "passed": true,
+      "detail": "7 figures"
+    },
+    {
+      "check": "manuscript_macros_defined",
+      "passed": true,
+      "detail": "12 generated macros used"
+    }
+  ]
+}

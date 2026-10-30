@@ -1,0 +1,40 @@
+# Model and algorithm configuration.
+# DAES parameters follow the original implementation where applicable.
+daes:
+  gain: 0.35                 # gamma in eta = gamma / ((1+safety) * lambda_hat)
+  safety: 0.10               # s in the original rule
+  power_iterations: 7
+  tracker_alpha: 0.16
+  tracker_alpha_max: 0.82
+  drift_sensitivity: 7.0
+  initial_vector: [0.83, 0.41, 0.37, 0.29, 0.23, 0.19]
+
+background:
+  covariance_forgetting: 0.02
+  covariance_shrinkage: 0.10
+  covariance_floor: 1.0e-6
+  covariance_floor_fraction: 0.25   # diagonal floor as a fraction of nominal Poisson variance
+  initial_covariance: "diagonal_poisson"   # diag(mu_0)
+
+gate:
+  window: 10
+  fano_min: 0.25
+  fano_max: 3.50
+  max_dt_seconds: 1.50
+  innovation_quantile: 0.999
+  innovation_floor: 10.0
+  drift_patience: 90          # consecutive innovation exceedances before release
+
+detector:
+  epsilon: 1.0e-6
+  target_far_per_hour: 1.0
+  calibration_seconds: 21600
+
+baselines:
+  ewma_alpha: 0.02
+  rls_forgetting: 0.995
+  adam_learning_rate: 0.01
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  adam_epsilon: 1.0e-8
+  static_covariance: "diagonal_poisson"

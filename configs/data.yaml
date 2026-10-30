@@ -1,0 +1,45 @@
+# Data and synthetic-stream configuration.
+# These values are design choices for the simulation, not measured detector properties.
+sampling:
+  dt_seconds: 1.0
+  duration_seconds: 21600          # 6 h per stream
+  warmup_seconds: 600              # excluded from detection metrics
+  timestamp_jitter_seconds: 0.0    # applied only by the jitter fault
+
+windows:
+  names: ["W1", "W2", "W3", "W4", "W5", "W6"]
+  lower_keV: [30, 120, 450, 900, 1350, 1600]
+  upper_keV: [120, 450, 900, 1350, 1600, 3000]
+  # Synthetic nominal background means (counts per 1 s). These are illustrative
+  # magnitudes taken from the supplied planning document, not measured data.
+  nominal_cps: [450.0, 320.0, 180.0, 95.0, 70.0, 55.0]
+
+background:
+  # Fractional standard deviation of the slowly varying background component.
+  # Poisson counting noise is added on top by the generator.
+  regime_sigma: 0.04
+  correlation: 0.25
+
+sources:
+  # Excess amplitude is expressed in baseline standard deviations of the window.
+  # Template entries are relative amplitudes per window.
+  templates:
+    cs137: [0.3, 0.8, 6.0, 1.2, 0.2, 0.1]
+    co60:  [0.2, 0.4, 1.0, 6.0, 0.6, 0.2]
+    pu239: [6.0, 2.0, 0.6, 0.2, 0.1, 0.05]
+  events_per_stream: 6
+  duration_seconds_range: [20, 60]
+  amplitude_sigma_range: [3.0, 8.0]
+  gap_seconds_range: [900, 2700]
+
+faults:
+  modes: ["dropout", "jitter", "stuck", "spike"]
+  rate: 0.10                       # fraction of samples affected when faults are on
+  dropout_channels_range: [1, 3]
+  jitter_seconds_range: [0.05, 0.49]   # produces intervals outside [0.5, 1.5]
+  stuck_length_range: [5, 30]
+  spike_sigma_range: [10.0, 50.0]
+
+seeds:
+  dev: [1001, 1002, 1003, 1004, 1005]
+  test: [11, 12, 13, 14, 15]

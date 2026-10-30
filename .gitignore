@@ -1,0 +1,55 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE and operating system
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# LaTeX build files
+*.aux
+*.log
+*.out
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# Temporary and duplicate research artifacts
+results_smoke/
+submission/
+prototype_source_dump.txt
+python_file_inventory.txt
+
+# Internal college-review working documents
+docs/college_review/
+
+# Cover letter contains submission-specific information
+paper/cover_letter.*
+
+# LaTeX generated bibliography/build files
+*.bbl
+
+# Internal college-review manuscript
+paper/main_college_review.pdf

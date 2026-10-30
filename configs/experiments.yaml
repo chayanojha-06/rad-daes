@@ -1,0 +1,53 @@
+# Benchmark configuration. Tuning uses dev seeds and dev scenario instances only.
+# The recurring regime is held out from tuning and appears only in the test matrix.
+duration_seconds: 21600
+warmup_seconds: 600
+
+dev:
+  seeds: [1001, 1002, 1003, 1004, 1005]
+  regimes: ["stable", "gradual", "abrupt"]
+  fault_condition: "mixed_10"
+  purpose: "hyperparameter selection and detector threshold calibration"
+
+test:
+  seeds: [11, 12, 13, 14, 15]
+  regimes: ["stable", "gradual", "abrupt", "recurring"]
+  fault_conditions:
+    - clean
+    - mixed_5
+    - mixed_10
+    - mixed_15
+    - dropout_10
+    - jitter_10
+    - stuck_10
+    - spike_10
+  purpose: "held-out evaluation; no tuning"
+
+methods:
+  - static
+  - ewma
+  - gated_ewma
+  - rls
+  - adam
+  - daes
+  - gated_daes_fixed
+  - rad_daes
+  - oracle_gate
+
+tuning_grid:
+  ewma_alpha: [0.005, 0.01, 0.02, 0.05, 0.10]
+  daes_gain: [0.05, 0.10, 0.20, 0.35, 0.50]
+  rls_forgetting: [0.98, 0.99, 0.995, 0.999]
+  adam_learning_rate: [0.001, 0.005, 0.01, 0.02]
+  gate_innovation_quantile: [0.99, 0.995, 0.999]
+
+selection_rule: >
+  Maximise mean development F1 across the three development regimes, subject to
+  mean background relative error <= 0.10 and mean false alarms per hour <= 2.0.
+  Ties are broken by lower mean background relative error, then by the smaller
+  learning-rate/gain parameter.
+
+statistics:
+  confidence_level: 0.95
+  interval: "two-sided Student-t across seeds, computed per scenario"
+  multiple_comparisons: "not corrected in this draft; scenario-level results are descriptive"
